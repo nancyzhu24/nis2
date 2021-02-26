@@ -1,5 +1,5 @@
 # nis2
-A R package that load 2016-2018 NIS data 
+A R package that load 2016-2018 National Inpatient Sample (NIS) data 
 
 ### Overview
 The National (Nationwide) Inpatient Sample (NIS) is a large publicly available all-payer inpatient care database in the United States, containing data on more than seven million hospital stays each year.
