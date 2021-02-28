@@ -27,15 +27,6 @@ load_nis <- function(filepath,year,data_type) {
       nis_specs<-severity_specs
     }
 
-    nis_specs$width<-nis_specs$end - nis_specs$start + 1
-    nis_specs$varname<-tolower(nis_specs$varname)
-
-    nis_specs$type<-ifelse(nis_specs$type =='int','i',
-                           ifelse(nis_specs$type %in% c("byte", "double", "long"),'d','c'))
-    ds<-read_fwf(filepath,
-             col_positions = fwf_widths(nis_specs$width,col_names = nis_specs$varname),
-             col_types = paste0(nis_specs$type, collapse = ""),
-             trim_ws = TRUE)
   }
 
 
@@ -52,15 +43,6 @@ load_nis <- function(filepath,year,data_type) {
       nis_specs<-severity_specs
     }
 
-    nis_specs$width<-nis_specs$end - nis_specs$start + 1
-    nis_specs$varname<-tolower(nis_specs$varname)
-
-    nis_specs$type<-ifelse(nis_specs$type =='int','i',
-                           ifelse(nis_specs$type %in% c("byte", "double", "long"),'d','c'))
-    ds<-read_fwf(filepath,
-             col_positions = fwf_widths(nis_specs$width,col_names = nis_specs$varname),
-             col_types = paste0(nis_specs$type, collapse = ""),
-             trim_ws = TRUE)
   }
 
   if(year==2018){
@@ -76,17 +58,17 @@ load_nis <- function(filepath,year,data_type) {
       nis_specs<-severity_specs
     }
 
-    nis_specs$width<-nis_specs$end - nis_specs$start + 1
-    nis_specs$varname<-tolower(nis_specs$varname)
-
-    nis_specs$type<-ifelse(nis_specs$type =='int','i',
-                           ifelse(nis_specs$type %in% c("byte", "double", "long"),'d','c'))
-    ds<-read_fwf(filepath,
-             col_positions = fwf_widths(nis_specs$width,col_names = nis_specs$varname),
-             col_types = paste0(nis_specs$type, collapse = ""),
-             trim_ws = TRUE)
-
   }
+
+  nis_specs$width<-nis_specs$end - nis_specs$start + 1
+  nis_specs$varname<-tolower(nis_specs$varname)
+
+  nis_specs$type<-ifelse(nis_specs$type =='int','i',
+                         ifelse(nis_specs$type %in% c("byte", "double", "long"),'d','c'))
+  ds<-read_fwf(filepath,
+               col_positions = fwf_widths(nis_specs$width,col_names = nis_specs$varname),
+               col_types = paste0(nis_specs$type, collapse = ""),
+               trim_ws = TRUE)
 
   return(ds)
 
